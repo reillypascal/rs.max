@@ -1,0 +1,32 @@
+{
+	"author" : "Reilly Spitzfaden",
+	"authors" : [  ],
+	"description" : "Max extensions",
+	"displayname" : "",
+	"extends" : "",
+	"extensible" : 0,
+	"homepatcher" : "",
+	"max_version_max" : "none",
+	"max_version_min" : "8.2.0",
+	"name" : "rs",
+	"os" : 	{
+		"macintosh" : 		{
+			"platform" : [ "x64", "aarch64" ],
+			"min_version" : "10.11.x"
+		}
+,
+		"windows" : 		{
+			"platform" : [ "x64" ],
+			"min_version" : "7"
+		}
+
+	}
+,
+	"tags" : [ "test" ],
+	"version" : "0.1.0",
+	"website" : "https://reillyspitzfaden.com",
+	"filelist" : 	{
+		"help" : [ "mult~.maxhelp" ]
+	}
+
+}
