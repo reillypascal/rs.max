@@ -2,13 +2,13 @@
 	"author" : "Reilly Spitzfaden",
 	"authors" : [  ],
 	"description" : "Max extensions",
-	"displayname" : "",
+	"displayname" : "rs.max",
 	"extends" : "",
 	"extensible" : 0,
 	"homepatcher" : "",
 	"max_version_max" : "none",
 	"max_version_min" : "8.2.0",
-	"name" : "rs",
+	"name" : "rs.max",
 	"os" : 	{
 		"macintosh" : 		{
 			"platform" : [ "x64", "aarch64" ],
@@ -22,11 +22,11 @@
 
 	}
 ,
-	"tags" : [ "test" ],
+	"tags" : [ "databending" ],
 	"version" : "0.1.0",
-	"website" : "https://reillyspitzfaden.com",
+	"website" : "https://reillyspitzfaden.com/code",
 	"filelist" : 	{
-		"help" : [ "mult~.maxhelp" ]
+		"help" : [ "rs.psk~.maxhelp" ]
 	}
 
 }
