@@ -16,23 +16,23 @@
 
 static t_class *psk_class;
 
-struct file_buf
+typedef struct _filebuf
 {
     char *data;
     unsigned long length;
     bool success;
     bool free;
-};
+} t_filebuf;
 
 typedef struct _psk
 {
     t_pxobject x_obj;
     t_sample x_val;
-    struct file_buf file;
+    t_filebuf file;
 } t_psk;
 
 void psk_assist(t_psk *x, void *b, long m, long a, char *s);
-void *psk_new(t_symbol *x, short argc, t_atom *argv);
+void *psk_new(t_symbol *x, long argc, t_atom *argv);
 void psk_dsp64(t_psk *x, t_object *dsp64, short *count, double samplerate, long maxvectorsize, long flags);
 void psk_assist(t_psk *x, void *b, long msg, long arg, char *dst);
 void psk_float(t_psk *x, double f);
@@ -57,7 +57,7 @@ C74_EXPORT void ext_main(void *r)
     psk_class = c;
 }
 
-void *psk_new(t_symbol *s, short argc, t_atom *argv)
+void *psk_new(t_symbol *s, long argc, t_atom *argv)
 {
     t_psk *x = (t_psk *)object_alloc(psk_class);
 
@@ -65,6 +65,16 @@ void *psk_new(t_symbol *s, short argc, t_atom *argv)
     // was z_dsp_setup
     dsp_setup((t_pxobject *)x, 1);
     outlet_new((t_pxobject *)x, "signal");
+
+    t_symbol *filename = gensym("");
+
+    atom_arg_getsym(&filename, 0, argc, argv);
+
+    if (filename != gensym(""))
+    {
+        // defer(x, (method)psk_doread, filename, 0, NULL);
+        psk_read(x, filename);
+    }
 
     return x;
 }
@@ -101,13 +111,15 @@ void psk_doread(t_psk *x, t_symbol *s)
 
     if (s == gensym(""))
     {
-        if (open_dialog(filename, &path, &outtype, &filetype, 1))
+        // 0 for any filetype permitted
+        if (open_dialog(filename, &path, &outtype, &filetype, 0))
             return;
     }
     else
     {
         strcpy(filename, s->s_name);
-        if (locatefile_extended(filename, &path, &outtype, &filetype, 1))
+        // 0 for any filetype permitted
+        if (locatefile_extended(filename, &path, &outtype, &filetype, 0))
         {
             object_error((t_object *)x, "%s: not found", s->s_name);
             return;
@@ -131,6 +143,12 @@ void psk_openfile(t_psk *x, char *filename, short path)
     x->file.data = sysmem_newptr(x->file.length);
 
     sysfile_read(fh, &x->file.length, x->file.data);
+
+    // for (int i = 0; i < x->file.length; i++)
+    // {
+    //     post("%u\n", x->file.data[i]);
+    // }
+
     sysfile_close(fh);
 }
 
