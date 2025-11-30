@@ -177,6 +177,7 @@ void psk_perform64(t_psk *x, t_object *dsp64, double **ins, long numins, double 
     double *out = outs[0];
     int n = sampleframes;
     t_double value;
+    bool trig = false;
 
     while (n--)
     {
@@ -187,18 +188,31 @@ void psk_perform64(t_psk *x, t_object *dsp64, double **ins, long numins, double 
         *out++ = x->bpsk_amp[(x->file.data[x->read_idx] >> x->read_shift) & 0b00000001];
 
         // increment shift if delta
-        if (fabs(value - x->prev_in) > 0.5)
+        if ((value - x->prev_in) > 0.5)
+        {
+            trig = true;
+        }
+        else
+        {
+            trig = false;
+        }
+
+        if (trig)
+        {
             x->read_shift++;
-        // post("%d\n", x->read_shift);
-        // wrap read shift
-        if (x->read_shift >= x->byte_size)
-            x->read_shift %= x->byte_size;
-        // increment index if shift wraps
-        if (x->read_shift == 0)
-            x->read_idx++;
-        // wrap index
-        if (x->read_idx >= x->file.length)
-            x->read_idx %= x->file.length;
+            // post("%d\n", x->read_shift);
+            // wrap read shift
+            if (x->read_shift >= x->byte_size)
+                x->read_shift %= x->byte_size;
+            // increment index if shift wraps
+            if (x->read_shift == 0)
+                x->read_idx++;
+            // wrap index
+            if (x->read_idx >= x->file.length)
+                x->read_idx %= x->file.length;
+        }
+
+        x->prev_in = value;
 
         // while (x->read_shift >= x->byte_size)
         //     x->read_shift -= x->byte_size;
@@ -212,8 +226,6 @@ void psk_perform64(t_psk *x, t_object *dsp64, double **ins, long numins, double 
         //     x->read_idx -= x->file.length;
         // while (x->read_idx < 0)
         //     x->read_idx += x->file.length;
-
-        x->prev_in = value;
     }
 }
 
