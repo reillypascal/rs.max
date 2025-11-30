@@ -27,21 +27,26 @@ typedef struct _filebuf
 typedef struct _psk
 {
     t_pxobject x_obj;
-    t_sample x_val;
+    t_double prev_in;
+    t_double bpsk_amp[2];
+    t_double qpsk_amp[4];
+    t_int read_idx;
+    t_int read_shift;
+    t_int byte_size;
     t_filebuf file;
 } t_psk;
 
 void psk_assist(t_psk *x, void *b, long m, long a, char *s);
 void *psk_new(t_symbol *x, long argc, t_atom *argv);
-void psk_dsp64(t_psk *x, t_object *dsp64, short *count, double samplerate, long maxvectorsize, long flags);
 void psk_assist(t_psk *x, void *b, long msg, long arg, char *dst);
-void psk_float(t_psk *x, double f);
-void psk_doread(t_psk *x, t_symbol *s);
+// void psk_float(t_psk *x, double f);
 void psk_read(t_psk *x, t_symbol *s);
+void psk_doread(t_psk *x, t_symbol *s);
 void psk_openfile(t_psk *x, char *filename, short path);
+void psk_dsp64(t_psk *x, t_object *dsp64, short *count, double samplerate, long maxvectorsize, long flags);
+void psk_perform64(t_psk *x, t_object *dsp64, double **ins, long numins, double **outs, long numouts, long sampleframes,
+                   long flags, void *userparam);
 void psk_free(t_psk *x);
-void psk_perform64_method(t_psk *x, t_object *dsp64, double **ins, long numins, double **outs, long numouts,
-                          long sampleframes, long flags, void *userparam);
 
 C74_EXPORT void ext_main(void *r)
 {
@@ -76,11 +81,19 @@ void *psk_new(t_symbol *s, long argc, t_atom *argv)
         psk_read(x, filename);
     }
 
-    return x;
-}
+    x->read_idx = 0;
+    x->read_shift = 0;
+    x->byte_size = 8;
 
-void psk_dsp64(t_psk *x, t_object *dsp64, short *count, double samplerate, long maxvectorsize, long flags)
-{
+    x->bpsk_amp[0] = 1.0;
+    x->bpsk_amp[1] = -1.0;
+
+    x->qpsk_amp[0] = 0.5;
+    x->qpsk_amp[1] = 0.0;
+    x->qpsk_amp[2] = -0.5;
+    x->qpsk_amp[3] = -1.0;
+
+    return x;
 }
 
 void psk_assist(t_psk *x, void *b, long msg, long arg, char *dst)
@@ -91,9 +104,9 @@ void psk_assist(t_psk *x, void *b, long msg, long arg, char *dst)
     }
 }
 
-void psk_float(t_psk *x, double f)
-{
-}
+// void psk_float(t_psk *x, double f)
+// {
+// }
 
 void psk_read(t_psk *x, t_symbol *s)
 {
@@ -152,14 +165,62 @@ void psk_openfile(t_psk *x, char *filename, short path)
     sysfile_close(fh);
 }
 
+void psk_dsp64(t_psk *x, t_object *dsp64, short *count, double samplerate, long maxvectorsize, long flags)
+{
+    object_method(dsp64, gensym("dsp_add64"), x, psk_perform64, 0, NULL);
+}
+
+void psk_perform64(t_psk *x, t_object *dsp64, double **ins, long numins, double **outs, long numouts, long sampleframes,
+                   long flags, void *userparam)
+{
+    double *in = ins[0];
+    double *out = outs[0];
+    int n = sampleframes;
+    t_double value;
+
+    while (n--)
+    {
+        value = *in++;
+
+        // *out++ = (double)x->read_shift / 8.0;
+        // *out++ = fabs(value - x->prev_in);
+        *out++ = x->bpsk_amp[(x->file.data[x->read_idx] >> x->read_shift) & 0b00000001];
+
+        // increment shift if delta
+        if (fabs(value - x->prev_in) > 0.5)
+            x->read_shift++;
+        // post("%d\n", x->read_shift);
+        // wrap read shift
+        if (x->read_shift >= x->byte_size)
+            x->read_shift %= x->byte_size;
+        // increment index if shift wraps
+        if (x->read_shift == 0)
+            x->read_idx++;
+        // wrap index
+        if (x->read_idx >= x->file.length)
+            x->read_idx %= x->file.length;
+
+        // while (x->read_shift >= x->byte_size)
+        //     x->read_shift -= x->byte_size;
+        // while (x->read_shift < 0)
+        //     x->read_shift += x->byte_size;
+        //
+        // if (x->read_shift == 0)
+        //     x->read_idx++;
+        //
+        // while (x->read_idx >= x->file.length)
+        //     x->read_idx -= x->file.length;
+        // while (x->read_idx < 0)
+        //     x->read_idx += x->file.length;
+
+        x->prev_in = value;
+    }
+}
+
 void psk_free(t_psk *x)
 {
     dsp_free((t_pxobject *)x);
+
     if (x->file.data != NULL)
         sysmem_freeptr(x->file.data);
-}
-
-void psk_perform64_method(t_psk *x, t_object *dsp64, double **ins, long numins, double **outs, long numouts,
-                          long sampleframes, long flags, void *userparam)
-{
 }
