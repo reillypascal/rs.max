@@ -50,9 +50,9 @@
 	</outletlist>
 	<!--ARGUMENTS-->
 	<objarglist>
-		<objarg name="sample" optional="1" type="symbol">
+		<objarg name="file" optional="1" type="symbol">
 			<digest>
-				File
+				File to be imported
 			</digest>
 			<description>
 				Name of the file to be imported
