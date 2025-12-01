@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 59.0, 100.0, 1116.0, 848.0 ],
+		"rect" : [ 539.0, 100.0, 939.0, 848.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -46,7 +46,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 516.0, 648.0, 60.0, 22.0 ],
+					"patching_rect" : [ 515.0, 648.0, 60.0, 22.0 ],
 					"text" : "mc.pack~"
 				}
 
@@ -59,7 +59,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 53.0, 85.0, 165.0, 116.0 ],
+					"patching_rect" : [ 52.0, 85.0, 166.0, 116.0 ],
 					"text" : "Import any file as raw binary data and play this data back as a control signal for synthesizing PSK (phase-shift keying) telecommunications signals."
 				}
 
@@ -72,7 +72,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 53.0, 39.0, 101.0, 33.0 ],
+					"patching_rect" : [ 52.0, 39.0, 101.0, 33.0 ],
 					"text" : "rs.psk~"
 				}
 
@@ -86,7 +86,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 500.0, 433.0, 50.0, 22.0 ]
+					"patching_rect" : [ 499.0, 433.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -97,7 +97,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 671.0, 112.0, 113.0, 33.0 ],
+					"patching_rect" : [ 670.0, 112.0, 113.0, 33.0 ],
 					"text" : "ratio of carrier frequency:data rate"
 				}
 
@@ -108,7 +108,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 251.0, 119.0, 104.0, 20.0 ],
+					"patching_rect" : [ 250.0, 119.0, 104.0, 20.0 ],
 					"text" : "carrier frequency"
 				}
 
@@ -122,7 +122,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 368.0, 118.0, 50.0, 22.0 ]
+					"patching_rect" : [ 367.0, 118.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -135,7 +135,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 603.0, 118.0, 50.0, 22.0 ]
+					"patching_rect" : [ 602.0, 118.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -146,7 +146,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 603.0, 76.0, 70.0, 22.0 ],
+					"patching_rect" : [ 602.0, 76.0, 70.0, 22.0 ],
 					"text" : "loadmess 2"
 				}
 
@@ -158,7 +158,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
-					"patching_rect" : [ 603.0, 203.0, 29.5, 22.0 ],
+					"patching_rect" : [ 602.0, 203.0, 29.5, 22.0 ],
 					"text" : "/ 1."
 				}
 
@@ -170,7 +170,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "bang", "float" ],
-					"patching_rect" : [ 603.0, 159.0, 29.5, 22.0 ],
+					"patching_rect" : [ 602.0, 159.0, 29.5, 22.0 ],
 					"text" : "t b f"
 				}
 
@@ -182,7 +182,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 368.0, 76.0, 83.0, 22.0 ],
+					"patching_rect" : [ 367.0, 76.0, 83.0, 22.0 ],
 					"text" : "loadmess 500"
 				}
 
@@ -194,7 +194,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 251.0, 429.0, 104.0, 33.0 ],
+					"patching_rect" : [ 250.0, 429.0, 104.0, 33.0 ],
 					"text" : "smooth/bandlimit control signal"
 				}
 
@@ -206,7 +206,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 428.0, 538.0, 186.0, 33.0 ],
+					"patching_rect" : [ 427.0, 538.0, 186.0, 33.0 ],
 					"text" : "alternate between gating ch. 0/1 sines, thus switching phases"
 				}
 
@@ -218,7 +218,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 648.0, 262.0, 179.0, 33.0 ],
+					"patching_rect" : [ 647.0, 262.0, 179.0, 33.0 ],
 					"text" : "generates two sinusoids 180º out of phase, one per channel"
 				}
 
@@ -230,7 +230,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 158.0, 359.0, 197.0, 47.0 ],
+					"patching_rect" : [ 157.0, 359.0, 197.0, 47.0 ],
 					"text" : "output 1 in ch. 1 if above 0, else 0\n\noutput -1 in ch. 2 if below 0, else 0"
 				}
 
@@ -242,7 +242,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 178.0, 248.0, 133.0, 47.0 ],
+					"patching_rect" : [ 177.0, 248.0, 133.0, 47.0 ],
 					"text" : "increment to next bit in stream with a single-sample click"
 				}
 
@@ -254,7 +254,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 435.0, 248.0, 150.0, 47.0 ],
+					"patching_rect" : [ 434.0, 248.0, 150.0, 47.0 ],
 					"text" : "either give filename as argument or load using the message \"read\""
 				}
 
@@ -266,7 +266,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 368.0, 584.0, 92.0, 22.0 ],
+					"patching_rect" : [ 367.0, 584.0, 92.0, 22.0 ],
 					"text" : "mc.mixdown~ 1"
 				}
 
@@ -278,7 +278,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 368.0, 549.0, 40.0, 22.0 ],
+					"patching_rect" : [ 367.0, 549.0, 40.0, 22.0 ],
 					"text" : "mc.*~"
 				}
 
@@ -290,7 +290,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 603.0, 429.0, 54.0, 22.0 ],
+					"patching_rect" : [ 602.0, 429.0, 54.0, 22.0 ],
 					"text" : "mc.cos~"
 				}
 
@@ -302,7 +302,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 603.0, 385.0, 56.0, 22.0 ],
+					"patching_rect" : [ 602.0, 385.0, 56.0, 22.0 ],
 					"text" : "mc.%~ 1"
 				}
 
@@ -314,7 +314,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 764.0, 312.0, 86.0, 22.0 ],
+					"patching_rect" : [ 763.0, 312.0, 86.0, 22.0 ],
 					"text" : "mcs.sig~ 0 0.5"
 				}
 
@@ -326,7 +326,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 603.0, 353.0, 42.0, 22.0 ],
+					"patching_rect" : [ 602.0, 353.0, 42.0, 22.0 ],
 					"text" : "mc.+~"
 				}
 
@@ -338,7 +338,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 603.0, 312.0, 129.0, 22.0 ],
+					"patching_rect" : [ 602.0, 312.0, 129.0, 22.0 ],
 					"text" : "mc.phasor~ @chans 2"
 				}
 
@@ -350,7 +350,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 451.0, 359.0, 80.0, 22.0 ],
+					"patching_rect" : [ 450.0, 359.0, 80.0, 22.0 ],
 					"text" : "mcs.sig~ 1 -1"
 				}
 
@@ -362,7 +362,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 368.0, 392.0, 102.0, 22.0 ],
+					"patching_rect" : [ 367.0, 392.0, 102.0, 22.0 ],
 					"text" : "mc.==~ @fuzzy 1"
 				}
 
@@ -374,7 +374,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 368.0, 359.0, 55.0, 22.0 ],
+					"patching_rect" : [ 367.0, 359.0, 55.0, 22.0 ],
 					"text" : "mc.dup~"
 				}
 
@@ -386,7 +386,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 368.0, 429.0, 108.0, 22.0 ],
+					"patching_rect" : [ 367.0, 429.0, 108.0, 22.0 ],
 					"text" : "mc.onepole~ 1500"
 				}
 
@@ -398,7 +398,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 368.0, 240.0, 35.0, 22.0 ],
+					"patching_rect" : [ 367.0, 240.0, 35.0, 22.0 ],
 					"text" : "abs~"
 				}
 
@@ -410,7 +410,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 368.0, 273.0, 43.0, 22.0 ],
+					"patching_rect" : [ 367.0, 273.0, 43.0, 22.0 ],
 					"text" : ">~ 0.5"
 				}
 
@@ -422,7 +422,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 368.0, 209.0, 42.0, 22.0 ],
+					"patching_rect" : [ 367.0, 209.0, 42.0, 22.0 ],
 					"text" : "delta~"
 				}
 
@@ -434,7 +434,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 368.0, 180.0, 52.0, 22.0 ],
+					"patching_rect" : [ 367.0, 180.0, 52.0, 22.0 ],
 					"text" : "phasor~"
 				}
 
@@ -446,7 +446,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 322.0, 273.0, 33.0, 22.0 ],
+					"patching_rect" : [ 321.0, 273.0, 33.0, 22.0 ],
 					"text" : "read"
 				}
 
@@ -458,7 +458,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 368.0, 312.0, 186.0, 22.0 ],
+					"patching_rect" : [ 367.0, 312.0, 186.0, 22.0 ],
 					"text" : "rs.psk~ lorem_ipsum_Uw3$_1.txt"
 				}
 
@@ -470,7 +470,7 @@
 					"maxclass" : "scope~",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 516.0, 682.0, 343.0, 128.0 ]
+					"patching_rect" : [ 515.0, 682.0, 343.0, 128.0 ]
 				}
 
 			}
@@ -481,7 +481,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 320.0, 753.0, 35.0, 22.0 ],
+					"patching_rect" : [ 319.0, 753.0, 35.0, 22.0 ],
 					"text" : "open"
 				}
 
@@ -494,7 +494,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 420.0, 638.0, 24.0, 24.0 ]
+					"patching_rect" : [ 419.0, 638.0, 24.0, 24.0 ]
 				}
 
 			}
@@ -505,7 +505,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 368.0, 639.0, 29.5, 22.0 ],
+					"patching_rect" : [ 367.0, 639.0, 29.5, 22.0 ],
 					"text" : "*~"
 				}
 
@@ -516,7 +516,7 @@
 					"maxclass" : "ezdac~",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 368.0, 753.0, 45.0, 45.0 ]
+					"patching_rect" : [ 367.0, 753.0, 45.0, 45.0 ]
 				}
 
 			}
@@ -530,7 +530,7 @@
 					"orientation" : 1,
 					"outlettype" : [ "signal", "signal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 368.0, 682.0, 136.0, 47.0 ],
+					"patching_rect" : [ 367.0, 682.0, 136.0, 47.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ -6 ],

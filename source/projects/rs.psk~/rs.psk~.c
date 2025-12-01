@@ -183,8 +183,6 @@ void psk_perform64(t_psk *x, t_object *dsp64, double **ins, long numins, double 
     {
         value = *in++;
 
-        // *out++ = (double)x->read_shift / 8.0;
-        // *out++ = fabs(value - x->prev_in);
         *out++ = x->bpsk_amp[(x->file.data[x->read_idx] >> x->read_shift) & 0b00000001];
 
         // increment shift if delta
@@ -200,7 +198,6 @@ void psk_perform64(t_psk *x, t_object *dsp64, double **ins, long numins, double 
         if (trig)
         {
             x->read_shift++;
-            // post("%d\n", x->read_shift);
             // wrap read shift
             if (x->read_shift >= x->byte_size)
                 x->read_shift %= x->byte_size;
