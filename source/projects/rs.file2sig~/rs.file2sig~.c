@@ -14,7 +14,7 @@
 #include <sys/stat.h>
 #include <z_dsp.h>
 
-static t_class *psk_class;
+static t_class *file2sig_class;
 
 typedef struct _filebuf
 {
@@ -24,7 +24,7 @@ typedef struct _filebuf
     bool free;
 } t_filebuf;
 
-typedef struct _psk
+typedef struct _file2sig
 {
     t_pxobject x_obj;
     t_double prev_in;
@@ -34,39 +34,39 @@ typedef struct _psk
     t_int read_shift;
     t_int byte_size;
     t_filebuf file;
-} t_psk;
+} t_file2sig;
 
-void psk_assist(t_psk *x, void *b, long m, long a, char *s);
-void *psk_new(t_symbol *x, long argc, t_atom *argv);
-void psk_assist(t_psk *x, void *b, long msg, long arg, char *dst);
-// void psk_float(t_psk *x, double f);
-void psk_read(t_psk *x, t_symbol *s);
-void psk_doread(t_psk *x, t_symbol *s);
-void psk_openfile(t_psk *x, char *filename, short path);
-void psk_dsp64(t_psk *x, t_object *dsp64, short *count, double samplerate, long maxvectorsize, long flags);
-void psk_perform64(t_psk *x, t_object *dsp64, double **ins, long numins, double **outs, long numouts, long sampleframes,
+void file2sig_assist(t_file2sig *x, void *b, long m, long a, char *s);
+void *file2sig_new(t_symbol *x, long argc, t_atom *argv);
+void file2sig_assist(t_file2sig *x, void *b, long msg, long arg, char *dst);
+// void file2sig_float(t_file2sig *x, double f);
+void file2sig_read(t_file2sig *x, t_symbol *s);
+void file2sig_doread(t_file2sig *x, t_symbol *s);
+void file2sig_openfile(t_file2sig *x, char *filename, short path);
+void file2sig_dsp64(t_file2sig *x, t_object *dsp64, short *count, double samplerate, long maxvectorsize, long flags);
+void file2sig_perform64(t_file2sig *x, t_object *dsp64, double **ins, long numins, double **outs, long numouts, long sampleframes,
                    long flags, void *userparam);
-void psk_free(t_psk *x);
+void file2sig_free(t_file2sig *x);
 
 C74_EXPORT void ext_main(void *r)
 {
     t_class *c;
 
-    c = class_new("rs.psk~", (method)psk_new, (method)psk_free, sizeof(t_psk), 0L, A_GIMME, 0);
+    c = class_new("rs.file2sig~", (method)file2sig_new, (method)file2sig_free, sizeof(t_file2sig), 0L, A_GIMME, 0);
 
-    class_addmethod(c, (method)psk_dsp64, "dsp64", A_CANT, 0);
-    class_addmethod(c, (method)psk_assist, "assist", A_CANT, 0);
-    class_addmethod(c, (method)psk_read, "read", A_DEFSYM, 0);
+    class_addmethod(c, (method)file2sig_dsp64, "dsp64", A_CANT, 0);
+    class_addmethod(c, (method)file2sig_assist, "assist", A_CANT, 0);
+    class_addmethod(c, (method)file2sig_read, "read", A_DEFSYM, 0);
     class_dspinit(c);
     class_register(CLASS_BOX, c);
-    psk_class = c;
+    file2sig_class = c;
 }
 
-void *psk_new(t_symbol *s, long argc, t_atom *argv)
+void *file2sig_new(t_symbol *s, long argc, t_atom *argv)
 {
-    t_psk *x = (t_psk *)object_alloc(psk_class);
+    t_file2sig *x = (t_file2sig *)object_alloc(file2sig_class);
 
-    // t_psk, num signal/proxy inputs
+    // t_file2sig, num signal/proxy inputs
     // was z_dsp_setup
     dsp_setup((t_pxobject *)x, 1);
     outlet_new((t_pxobject *)x, "signal");
@@ -77,8 +77,8 @@ void *psk_new(t_symbol *s, long argc, t_atom *argv)
 
     if (filename != gensym(""))
     {
-        // defer(x, (method)psk_doread, filename, 0, NULL);
-        psk_read(x, filename);
+        // defer(x, (method)file2sig_doread, filename, 0, NULL);
+        file2sig_read(x, filename);
     }
 
     x->read_idx = 0;
@@ -96,7 +96,7 @@ void *psk_new(t_symbol *s, long argc, t_atom *argv)
     return x;
 }
 
-void psk_assist(t_psk *x, void *b, long msg, long arg, char *dst)
+void file2sig_assist(t_file2sig *x, void *b, long msg, long arg, char *dst)
 {
     if (msg == ASSIST_OUTLET)
     {
@@ -104,16 +104,16 @@ void psk_assist(t_psk *x, void *b, long msg, long arg, char *dst)
     }
 }
 
-// void psk_float(t_psk *x, double f)
+// void file2sig_float(t_file2sig *x, double f)
 // {
 // }
 
-void psk_read(t_psk *x, t_symbol *s)
+void file2sig_read(t_file2sig *x, t_symbol *s)
 {
-    defer(x, (method)psk_doread, s, 0, NULL);
+    defer(x, (method)file2sig_doread, s, 0, NULL);
 }
 
-void psk_doread(t_psk *x, t_symbol *s)
+void file2sig_doread(t_file2sig *x, t_symbol *s)
 {
     // TODO: empty string of 4 char for filetype?
     // right now it seems to work, but it's uninitialized
@@ -139,10 +139,10 @@ void psk_doread(t_psk *x, t_symbol *s)
         }
     }
 
-    psk_openfile(x, filename, path);
+    file2sig_openfile(x, filename, path);
 }
 
-void psk_openfile(t_psk *x, char *filename, short path)
+void file2sig_openfile(t_file2sig *x, char *filename, short path)
 {
     t_filehandle fh;
 
@@ -165,12 +165,12 @@ void psk_openfile(t_psk *x, char *filename, short path)
     sysfile_close(fh);
 }
 
-void psk_dsp64(t_psk *x, t_object *dsp64, short *count, double samplerate, long maxvectorsize, long flags)
+void file2sig_dsp64(t_file2sig *x, t_object *dsp64, short *count, double samplerate, long maxvectorsize, long flags)
 {
-    object_method(dsp64, gensym("dsp_add64"), x, psk_perform64, 0, NULL);
+    object_method(dsp64, gensym("dsp_add64"), x, file2sig_perform64, 0, NULL);
 }
 
-void psk_perform64(t_psk *x, t_object *dsp64, double **ins, long numins, double **outs, long numouts, long sampleframes,
+void file2sig_perform64(t_file2sig *x, t_object *dsp64, double **ins, long numins, double **outs, long numouts, long sampleframes,
                    long flags, void *userparam)
 {
     double *in = ins[0];
@@ -226,7 +226,7 @@ void psk_perform64(t_psk *x, t_object *dsp64, double **ins, long numins, double 
     }
 }
 
-void psk_free(t_psk *x)
+void file2sig_free(t_file2sig *x)
 {
     dsp_free((t_pxobject *)x);
 

@@ -36,13 +36,13 @@
 	"website": "https://reillyspitzfaden.com/code#maxmsp",
 	"filelist": {
 		"help": [
-			"rs.psk~.maxhelp"
+			"rs.file2sig~.maxhelp"
 		],
 		"externals": [
-			"rs.psk~.mxo"
+			"rs.file2sig~.mxo"
 		],
 		"docs": [
-			"rs.psk~.maxref.xml"
+			"rs.file2sig~.maxref.xml"
 		]
 	}
 }

@@ -2,12 +2,12 @@
 
 <?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
 
-<c74object name="rs.psk~" module="msp" category="MSP Control">
+<c74object name="rs.file2sig~" module="msp" category="MSP Control">
 	<digest>
 		Converts arbitrary binary data into phase-shift keying control signals.
 	</digest>
 	<description>
-		<o>rs.psk~</o> by Reilly Spitzfaden can import any file as raw binary data and play this data back as a control signal for synthesizing PSK (phase-shift keying) telecommunications signals.
+		<o>rs.file2sig~</o> by Reilly Spitzfaden can import any file as raw binary data and play this data back as a control signal for synthesizing PSK (phase-shift keying) telecommunications signals.
 	</description>
 	<!--METADATA-->
 	<metadatalist>

@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>rs.psk~</string>
+	<string>rs.file2sig~</string>
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
@@ -29,7 +29,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string></string>
 	<key>CFBundleLongVersionString</key>
-	<string>rs.psk~  - </string>
+	<string>rs.file2sig~  - </string>
 	<key>NSHumanReadableCopyright</key>
 	<string></string>
 	

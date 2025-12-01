@@ -46,8 +46,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 70.0, 290.0, 74.0, 22.0 ],
-					"text" : "help rs.psk~"
+					"patching_rect" : [ 70.0, 290.0, 92.0, 22.0 ],
+					"text" : "help rs.file2sig~"
 				}
 
 			}
@@ -82,12 +82,12 @@
 				"box" : 				{
 					"fontsize" : 14.0,
 					"id" : "obj-10",
-					"linecount" : 4,
+					"linecount" : 5,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 70.0, 290.0, 265.0, 69.0 ],
-					"text" : "[rs.psk~]:  import any file as raw binary data and play this data back as a control signal for synthesizing PSK (phase-shift keying) telecommunications signals."
+					"patching_rect" : [ 70.0, 290.0, 265.0, 85.0 ],
+					"text" : "[rs.file2sig~]:  import any file as raw binary data and play this data back as a control signal for synthesizing PSK (phase-shift keying) telecommunications signals."
 				}
 
 			}
@@ -139,8 +139,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 70.0, 255.0, 67.0, 29.0 ],
-					"text" : "rs.psk~"
+					"patching_rect" : [ 70.0, 255.0, 95.0, 29.0 ],
+					"text" : "rs.file2sig~"
 				}
 
 			}

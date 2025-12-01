@@ -84,8 +84,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 27.0, 24.0, 101.0, 33.0 ],
-					"text" : "rs.psk~"
+					"patching_rect" : [ 27.0, 24.0, 143.0, 33.0 ],
+					"text" : "rs.file2sig~"
 				}
 
 			}
@@ -469,9 +469,9 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 353.0, 296.0, 186.0, 22.0 ],
-					"text" : "rs.psk~ lorem_ipsum_Uw3$_1.txt"
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 353.0, 296.0, 205.0, 22.0 ],
+					"text" : "rs.file2sig~ lorem_ipsum_Uw3$_1.txt"
 				}
 
 			}
@@ -843,11 +843,7 @@
 			"inherited_shortname" : 1
 		}
 ,
-		"dependency_cache" : [ 			{
-				"name" : "rs.psk~.mxo",
-				"type" : "iLaX"
-			}
- ],
+		"dependency_cache" : [  ],
 		"autosave" : 0
 	}
 
