@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="rs.psk~" module="msp" category="MSP Control">
+	<digest>
+		Converts arbitrary binary data into phase-shift keying control signals.
+	</digest>
+	<description>
+		<o>rs.psk~</o> by Reilly Spitzfaden can import any file as raw binary data and play this data back as a control signal for synthesizing PSK (phase-shift keying) telecommunications signals.
+	</description>
+	<!--METADATA-->
+	<metadatalist>
+		<metadata name="author">
+			Reilly Spitzfaden
+		</metadata>
+		<metadata name="tag">
+			Max
+		</metadata>
+		<metadata name="tag">
+			MSP Control
+		</metadata>
+		<metadata name="reference">
+			TEXT_HERE
+		</metadata>
+		<metadata name="license">
+			TEXT_HERE
+		</metadata>
+	</metadatalist>
+	<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="signal">
+			<digest>
+				trigger inlet
+			</digest>
+			<description>
+				Signal input: a single sample click advances the output to the next bit in the source file
+			</description>
+		</inlet>
+	</inletlist>
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="signal">
+			<digest>
+				Signal output
+			</digest>
+			<description>
+			</description>
+		</outlet>
+	</outletlist>
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="sample" optional="1" type="symbol">
+			<digest>
+				File
+			</digest>
+			<description>
+				Name of the file to be imported
+			</description>
+		</objarg>
+	</objarglist>
+	<!--MESSAGES-->
+	<methodlist>
+		<method name="read">
+			<arglist>
+				<arg name="file name" optional="1" type="symbol" />
+			</arglist>
+			<digest>
+				Load a file
+			</digest>
+			<description>
+				"read" followed by a file name opens that file; "read" alone opens the file picker window.
+			</description>
+		</method>
+	</methodlist>
+	<!--ATTRIBUTES-->
+<!-- 	<attributelist>
+		<attribute name="stereo" get="1" set="1" type="int" size="1" value="0">
+			<digest>
+				Multi-channel playback on/off
+			</digest>
+			<description>
+				Activates and deactivates stereo playback of multi-channel files loaded into the sample buffer.
+			</description>
+			<attributelist>
+				<attribute name="default" get="1" set="1" type="int" size="1" value="0" />
+			</attributelist>
+		</attribute>
+		<attribute name="reverse" get="1" set="1" type="symbol" size="1">
+			<digest>
+				Reverse grain playback mode
+			</digest>
+			<description>
+				Sets the reverse grain playback mode.
+			</description>
+			<attributelist>
+				<attribute name="default" get="1" set="1" type="symbol" size="1" value="off" />
+				<attribute name="enumvals" get="1" set="1" type="atom" size="4">
+					<enumlist>
+						<enum name="off">
+							<digest>
+								Forward grain playback
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="on">
+							<digest>
+								Reverse grain playback
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="random">
+							<digest>
+								Randomly alternating between reverse and forward grain playback
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="direction">
+							<digest>
+								Forward playback when value for min/max offset increasing, reverse playback when value for min/max offset decreasing
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+					</enumlist>
+				</attribute>
+				<attribute name="style" get="1" set="1" type="symbol" size="1" value="enum" />
+			</attributelist>
+		</attribute>
+	</attributelist> -->
+	<misc name="Output">
+		<entry name="signal outlet">
+			<description>
+				Signal outlet.
+			</description>
+		</entry>
+	</misc>
+</c74object>
+

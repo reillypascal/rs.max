@@ -40,6 +40,9 @@
 		],
 		"externals": [
 			"rs.psk~.mxo"
+		],
+		"docs": [
+			"rs.psk~.maxref.xml"
 		]
 	}
 }
