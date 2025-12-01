@@ -28,13 +28,14 @@ typedef struct _file2sig
 {
     t_pxobject x_obj;
     t_double prev_in;
-    t_double bpsk_amp[2];
-    t_double qpsk_amp[4];
     t_int read_idx;
     t_int read_shift;
     t_int byte_size;
     t_filebuf file;
 } t_file2sig;
+
+static double_t BIN_AMP[2] = {1.0, -1.0};
+static double_t QUAD_AMP[4] = {0.5, 0.0, -0.5, -1.0};
 
 void file2sig_assist(t_file2sig *x, void *b, long m, long a, char *s);
 void *file2sig_new(t_symbol *x, long argc, t_atom *argv);
@@ -44,8 +45,8 @@ void file2sig_read(t_file2sig *x, t_symbol *s);
 void file2sig_doread(t_file2sig *x, t_symbol *s);
 void file2sig_openfile(t_file2sig *x, char *filename, short path);
 void file2sig_dsp64(t_file2sig *x, t_object *dsp64, short *count, double samplerate, long maxvectorsize, long flags);
-void file2sig_perform64(t_file2sig *x, t_object *dsp64, double **ins, long numins, double **outs, long numouts, long sampleframes,
-                   long flags, void *userparam);
+void file2sig_perform64(t_file2sig *x, t_object *dsp64, double **ins, long numins, double **outs, long numouts,
+                        long sampleframes, long flags, void *userparam);
 void file2sig_free(t_file2sig *x);
 
 C74_EXPORT void ext_main(void *r)
@@ -84,14 +85,6 @@ void *file2sig_new(t_symbol *s, long argc, t_atom *argv)
     x->read_idx = 0;
     x->read_shift = 0;
     x->byte_size = 8;
-
-    x->bpsk_amp[0] = 1.0;
-    x->bpsk_amp[1] = -1.0;
-
-    x->qpsk_amp[0] = 0.5;
-    x->qpsk_amp[1] = 0.0;
-    x->qpsk_amp[2] = -0.5;
-    x->qpsk_amp[3] = -1.0;
 
     return x;
 }
@@ -170,8 +163,8 @@ void file2sig_dsp64(t_file2sig *x, t_object *dsp64, short *count, double sampler
     object_method(dsp64, gensym("dsp_add64"), x, file2sig_perform64, 0, NULL);
 }
 
-void file2sig_perform64(t_file2sig *x, t_object *dsp64, double **ins, long numins, double **outs, long numouts, long sampleframes,
-                   long flags, void *userparam)
+void file2sig_perform64(t_file2sig *x, t_object *dsp64, double **ins, long numins, double **outs, long numouts,
+                        long sampleframes, long flags, void *userparam)
 {
     double *in = ins[0];
     double *out = outs[0];
@@ -183,9 +176,9 @@ void file2sig_perform64(t_file2sig *x, t_object *dsp64, double **ins, long numin
     {
         value = *in++;
 
-        *out++ = x->bpsk_amp[(x->file.data[x->read_idx] >> x->read_shift) & 0b00000001];
+        *out++ = BIN_AMP[(x->file.data[x->read_idx] >> x->read_shift) & 0b00000001];
 
-        // increment shift if delta
+        // set trig to true if delta
         if ((value - x->prev_in) > 0.5)
         {
             trig = true;
@@ -195,12 +188,14 @@ void file2sig_perform64(t_file2sig *x, t_object *dsp64, double **ins, long numin
             trig = false;
         }
 
+        // increment shift if trig
         if (trig)
         {
             x->read_shift++;
             // wrap read shift
             if (x->read_shift >= x->byte_size)
                 x->read_shift %= x->byte_size;
+
             // increment index if shift wraps
             if (x->read_shift == 0)
                 x->read_idx++;
@@ -209,20 +204,8 @@ void file2sig_perform64(t_file2sig *x, t_object *dsp64, double **ins, long numin
                 x->read_idx %= x->file.length;
         }
 
+        // input into 1 sample delay line
         x->prev_in = value;
-
-        // while (x->read_shift >= x->byte_size)
-        //     x->read_shift -= x->byte_size;
-        // while (x->read_shift < 0)
-        //     x->read_shift += x->byte_size;
-        //
-        // if (x->read_shift == 0)
-        //     x->read_idx++;
-        //
-        // while (x->read_idx >= x->file.length)
-        //     x->read_idx -= x->file.length;
-        // while (x->read_idx < 0)
-        //     x->read_idx += x->file.length;
     }
 }
 
