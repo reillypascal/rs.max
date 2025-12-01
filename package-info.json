@@ -5,7 +5,7 @@
 	"displayname" : "rs.max",
 	"extends" : "",
 	"extensible" : 0,
-	"homepatcher" : "",
+	"homepatcher" : "rs.max.maxpat",
 	"max_version_max" : "none",
 	"max_version_min" : "8.2.0",
 	"name" : "rs.max",

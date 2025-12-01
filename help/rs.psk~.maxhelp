@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 59.0, 100.0, 956.0, 848.0 ],
+		"rect" : [ 59.0, 100.0, 1116.0, 848.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,12 +40,64 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"hidden" : 1,
+					"id" : "obj-33",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "multichannelsignal" ],
+					"patching_rect" : [ 516.0, 648.0, 60.0, 22.0 ],
+					"text" : "mc.pack~"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontsize" : 14.0,
+					"id" : "obj-31",
+					"linecount" : 7,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 53.0, 85.0, 165.0, 116.0 ],
+					"text" : "Import any file as raw binary data and play this data back as a control signal for synthesizing PSK (phase-shift keying) telecommunications signals."
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 1,
+					"fontsize" : 24.0,
+					"id" : "obj-28",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 53.0, 39.0, 101.0, 33.0 ],
+					"text" : "rs.psk~"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"format" : 6,
+					"id" : "obj-18",
+					"maxclass" : "flonum",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 500.0, 433.0, 50.0, 22.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-47",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 596.0, 97.0, 113.0, 33.0 ],
+					"patching_rect" : [ 671.0, 112.0, 113.0, 33.0 ],
 					"text" : "ratio of carrier frequency:data rate"
 				}
 
@@ -56,7 +108,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 176.0, 103.5, 104.0, 20.0 ],
+					"patching_rect" : [ 251.0, 119.0, 104.0, 20.0 ],
 					"text" : "carrier frequency"
 				}
 
@@ -70,7 +122,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 293.0, 102.5, 50.0, 22.0 ]
+					"patching_rect" : [ 368.0, 118.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -83,7 +135,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 528.0, 102.5, 50.0, 22.0 ]
+					"patching_rect" : [ 603.0, 118.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -94,7 +146,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 528.0, 61.0, 70.0, 22.0 ],
+					"patching_rect" : [ 603.0, 76.0, 70.0, 22.0 ],
 					"text" : "loadmess 2"
 				}
 
@@ -106,7 +158,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
-					"patching_rect" : [ 528.0, 188.0, 29.5, 22.0 ],
+					"patching_rect" : [ 603.0, 203.0, 29.5, 22.0 ],
 					"text" : "/ 1."
 				}
 
@@ -118,7 +170,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "bang", "float" ],
-					"patching_rect" : [ 528.0, 144.0, 29.5, 22.0 ],
+					"patching_rect" : [ 603.0, 159.0, 29.5, 22.0 ],
 					"text" : "t b f"
 				}
 
@@ -130,7 +182,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 293.0, 61.0, 83.0, 22.0 ],
+					"patching_rect" : [ 368.0, 76.0, 83.0, 22.0 ],
 					"text" : "loadmess 500"
 				}
 
@@ -138,11 +190,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-36",
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 176.0, 438.0, 150.0, 20.0 ],
-					"text" : "smooth/bandlimit "
+					"patching_rect" : [ 251.0, 429.0, 104.0, 33.0 ],
+					"text" : "smooth/bandlimit control signal"
 				}
 
 			}
@@ -153,7 +206,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 353.0, 523.0, 186.0, 33.0 ],
+					"patching_rect" : [ 428.0, 538.0, 186.0, 33.0 ],
 					"text" : "alternate between gating ch. 0/1 sines, thus switching phases"
 				}
 
@@ -165,7 +218,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 596.0, 252.5, 179.0, 33.0 ],
+					"patching_rect" : [ 648.0, 262.0, 179.0, 33.0 ],
 					"text" : "generates two sinusoids 180º out of phase, one per channel"
 				}
 
@@ -177,7 +230,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 83.0, 352.0, 197.0, 47.0 ],
+					"patching_rect" : [ 158.0, 359.0, 197.0, 47.0 ],
 					"text" : "output 1 in ch. 1 if above 0, else 0\n\noutput -1 in ch. 2 if below 0, else 0"
 				}
 
@@ -189,7 +242,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 103.0, 233.0, 131.0, 47.0 ],
+					"patching_rect" : [ 178.0, 248.0, 133.0, 47.0 ],
 					"text" : "increment to next bit in stream with a single-sample click"
 				}
 
@@ -201,7 +254,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 360.0, 233.0, 150.0, 47.0 ],
+					"patching_rect" : [ 435.0, 248.0, 150.0, 47.0 ],
 					"text" : "either give filename as argument or load using the message \"read\""
 				}
 
@@ -213,7 +266,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 293.0, 569.0, 92.0, 22.0 ],
+					"patching_rect" : [ 368.0, 584.0, 92.0, 22.0 ],
 					"text" : "mc.mixdown~ 1"
 				}
 
@@ -225,7 +278,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 293.0, 534.0, 40.0, 22.0 ],
+					"patching_rect" : [ 368.0, 549.0, 40.0, 22.0 ],
 					"text" : "mc.*~"
 				}
 
@@ -237,7 +290,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 528.0, 414.0, 54.0, 22.0 ],
+					"patching_rect" : [ 603.0, 429.0, 54.0, 22.0 ],
 					"text" : "mc.cos~"
 				}
 
@@ -249,7 +302,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 528.0, 370.0, 56.0, 22.0 ],
+					"patching_rect" : [ 603.0, 385.0, 56.0, 22.0 ],
 					"text" : "mc.%~ 1"
 				}
 
@@ -261,7 +314,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 689.0, 297.0, 86.0, 22.0 ],
+					"patching_rect" : [ 764.0, 312.0, 86.0, 22.0 ],
 					"text" : "mcs.sig~ 0 0.5"
 				}
 
@@ -273,7 +326,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 528.0, 338.0, 42.0, 22.0 ],
+					"patching_rect" : [ 603.0, 353.0, 42.0, 22.0 ],
 					"text" : "mc.+~"
 				}
 
@@ -285,7 +338,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 528.0, 297.0, 129.0, 22.0 ],
+					"patching_rect" : [ 603.0, 312.0, 129.0, 22.0 ],
 					"text" : "mc.phasor~ @chans 2"
 				}
 
@@ -297,7 +350,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 376.0, 344.0, 80.0, 22.0 ],
+					"patching_rect" : [ 451.0, 359.0, 80.0, 22.0 ],
 					"text" : "mcs.sig~ 1 -1"
 				}
 
@@ -309,7 +362,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 293.0, 377.0, 102.0, 22.0 ],
+					"patching_rect" : [ 368.0, 392.0, 102.0, 22.0 ],
 					"text" : "mc.==~ @fuzzy 1"
 				}
 
@@ -321,7 +374,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 293.0, 344.0, 55.0, 22.0 ],
+					"patching_rect" : [ 368.0, 359.0, 55.0, 22.0 ],
 					"text" : "mc.dup~"
 				}
 
@@ -333,7 +386,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 293.0, 414.0, 108.0, 22.0 ],
+					"patching_rect" : [ 368.0, 429.0, 108.0, 22.0 ],
 					"text" : "mc.onepole~ 1500"
 				}
 
@@ -345,7 +398,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 293.0, 225.0, 35.0, 22.0 ],
+					"patching_rect" : [ 368.0, 240.0, 35.0, 22.0 ],
 					"text" : "abs~"
 				}
 
@@ -357,7 +410,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 293.0, 258.0, 43.0, 22.0 ],
+					"patching_rect" : [ 368.0, 273.0, 43.0, 22.0 ],
 					"text" : ">~ 0.5"
 				}
 
@@ -369,7 +422,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 293.0, 194.0, 42.0, 22.0 ],
+					"patching_rect" : [ 368.0, 209.0, 42.0, 22.0 ],
 					"text" : "delta~"
 				}
 
@@ -381,7 +434,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 293.0, 165.0, 52.0, 22.0 ],
+					"patching_rect" : [ 368.0, 180.0, 52.0, 22.0 ],
 					"text" : "phasor~"
 				}
 
@@ -393,7 +446,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 247.0, 258.0, 33.0, 22.0 ],
+					"patching_rect" : [ 322.0, 273.0, 33.0, 22.0 ],
 					"text" : "read"
 				}
 
@@ -405,7 +458,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 293.0, 297.0, 186.0, 22.0 ],
+					"patching_rect" : [ 368.0, 312.0, 186.0, 22.0 ],
 					"text" : "rs.psk~ lorem_ipsum_Uw3$_1.txt"
 				}
 
@@ -417,7 +470,7 @@
 					"maxclass" : "scope~",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 454.0, 667.0, 321.0, 119.0 ]
+					"patching_rect" : [ 516.0, 682.0, 343.0, 128.0 ]
 				}
 
 			}
@@ -428,7 +481,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 245.0, 741.0, 35.0, 22.0 ],
+					"patching_rect" : [ 320.0, 753.0, 35.0, 22.0 ],
 					"text" : "open"
 				}
 
@@ -441,7 +494,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 345.0, 623.0, 24.0, 24.0 ]
+					"patching_rect" : [ 420.0, 638.0, 24.0, 24.0 ]
 				}
 
 			}
@@ -452,7 +505,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 293.0, 624.0, 29.5, 22.0 ],
+					"patching_rect" : [ 368.0, 639.0, 29.5, 22.0 ],
 					"text" : "*~"
 				}
 
@@ -463,7 +516,7 @@
 					"maxclass" : "ezdac~",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 293.0, 741.0, 45.0, 45.0 ]
+					"patching_rect" : [ 368.0, 753.0, 45.0, 45.0 ]
 				}
 
 			}
@@ -477,7 +530,7 @@
 					"orientation" : 1,
 					"outlettype" : [ "signal", "signal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 293.0, 667.0, 136.0, 47.0 ],
+					"patching_rect" : [ 368.0, 682.0, 136.0, 47.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ -6 ],
@@ -501,6 +554,16 @@
 		"lines" : [ 			{
 				"patchline" : 				{
 					"destination" : [ "obj-15", 0 ],
+					"order" : 1,
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-33", 1 ],
+					"hidden" : 1,
+					"order" : 0,
 					"source" : [ "obj-1", 0 ]
 				}
 
@@ -544,6 +607,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-20", 0 ],
 					"source" : [ "obj-15", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-14", 1 ],
+					"source" : [ "obj-18", 0 ]
 				}
 
 			}
@@ -614,6 +684,14 @@
 				"patchline" : 				{
 					"destination" : [ "obj-7", 0 ],
 					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-9", 0 ],
+					"hidden" : 1,
+					"source" : [ "obj-33", 0 ]
 				}
 
 			}
@@ -707,16 +785,17 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-4", 0 ],
-					"order" : 1,
+					"destination" : [ "obj-33", 0 ],
+					"hidden" : 1,
+					"order" : 0,
 					"source" : [ "obj-8", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-9", 0 ],
-					"order" : 0,
+					"destination" : [ "obj-4", 0 ],
+					"order" : 1,
 					"source" : [ "obj-8", 0 ]
 				}
 
