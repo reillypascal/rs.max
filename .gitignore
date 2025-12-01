@@ -1,5 +1,5 @@
 .cache/
 build/
-# source/max-sdk-base/*
+storage/
 .DS_Store
 Session.vim

@@ -1,32 +1,45 @@
 {
-	"author" : "Reilly Spitzfaden",
-	"authors" : [  ],
-	"description" : "Max extensions",
-	"displayname" : "rs.max",
-	"extends" : "",
-	"extensible" : 0,
-	"homepatcher" : "rs.max.maxpat",
-	"max_version_max" : "none",
-	"max_version_min" : "8.2.0",
-	"name" : "rs.max",
-	"os" : 	{
-		"macintosh" : 		{
-			"platform" : [ "x64", "aarch64" ],
-			"min_version" : "10.11.x"
+	"author": "Reilly Spitzfaden",
+	"authors": [],
+	"description": "Max/MSP externals, including tools for databending and glitch sounds.",
+	"displayname": "rs.max",
+	"extends": "",
+	"extensible": 0,
+	"homepatcher": "rs.max.maxpat",
+	"max_version_max": "none",
+	"max_version_min": "8.2.0",
+	"name": "rs.max",
+	"os": {
+		"macintosh": {
+			"platform": [
+				"x64",
+				"aarch64"
+			],
+			"min_version": "10.11.x"
+		},
+		"windows": {
+			"platform": [
+				"x64"
+			],
+			"min_version": "7"
 		}
-,
-		"windows" : 		{
-			"platform" : [ "x64" ],
-			"min_version" : "7"
-		}
-
+	},
+	"tags": [
+		"databending",
+		"glitch",
+		"telecommunications",
+		"noise",
+		"control",
+		"signal"
+	],
+	"version": "0.1.0",
+	"website": "https://reillyspitzfaden.com/code#maxmsp",
+	"filelist": {
+		"help": [
+			"rs.psk~.maxhelp"
+		],
+		"externals": [
+			"rs.psk~.mxo"
+		]
 	}
-,
-	"tags" : [ "databending" ],
-	"version" : "0.1.0",
-	"website" : "https://reillyspitzfaden.com/code",
-	"filelist" : 	{
-		"help" : [ "rs.psk~.maxhelp" ]
-	}
-
 }
