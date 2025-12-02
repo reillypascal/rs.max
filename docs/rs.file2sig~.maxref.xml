@@ -74,67 +74,6 @@
 		</method>
 	</methodlist>
 	<!--ATTRIBUTES-->
-<!-- 	<attributelist>
-		<attribute name="stereo" get="1" set="1" type="int" size="1" value="0">
-			<digest>
-				Multi-channel playback on/off
-			</digest>
-			<description>
-				Activates and deactivates stereo playback of multi-channel files loaded into the sample buffer.
-			</description>
-			<attributelist>
-				<attribute name="default" get="1" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
-		<attribute name="reverse" get="1" set="1" type="symbol" size="1">
-			<digest>
-				Reverse grain playback mode
-			</digest>
-			<description>
-				Sets the reverse grain playback mode.
-			</description>
-			<attributelist>
-				<attribute name="default" get="1" set="1" type="symbol" size="1" value="off" />
-				<attribute name="enumvals" get="1" set="1" type="atom" size="4">
-					<enumlist>
-						<enum name="off">
-							<digest>
-								Forward grain playback
-							</digest>
-							<description>
-								TEXT_HERE
-							</description>
-						</enum>
-						<enum name="on">
-							<digest>
-								Reverse grain playback
-							</digest>
-							<description>
-								TEXT_HERE
-							</description>
-						</enum>
-						<enum name="random">
-							<digest>
-								Randomly alternating between reverse and forward grain playback
-							</digest>
-							<description>
-								TEXT_HERE
-							</description>
-						</enum>
-						<enum name="direction">
-							<digest>
-								Forward playback when value for min/max offset increasing, reverse playback when value for min/max offset decreasing
-							</digest>
-							<description>
-								TEXT_HERE
-							</description>
-						</enum>
-					</enumlist>
-				</attribute>
-				<attribute name="style" get="1" set="1" type="symbol" size="1" value="enum" />
-			</attributelist>
-		</attribute>
-	</attributelist> -->
 	<misc name="Output">
 		<entry name="signal outlet">
 			<description>
