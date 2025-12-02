@@ -1,7 +1,7 @@
 {
 	"author": "Reilly Spitzfaden",
 	"authors": [],
-	"description": "Max/MSP externals, including tools for databending and glitch sounds.<br><br>[rs.psk~]: import any file as raw binary data and play this data back as a control signal for synthesizing PSK (phase-shift keying) telecommunications signals.",
+	"description": "Max/MSP externals, including tools for databending and glitch sounds.<br><br>[rs.psk~]: import any file as raw binary data and play this data back as a control signal for synthesizing PSK (phase-shift keying)/ASK/FSK/etc. telecommunications signals.",
 	"displayname": "rs.max",
 	"extends": "",
 	"extensible": 0,
