@@ -6,6 +6,7 @@
 #include "ext_proto.h"
 #include "ext_sysfile.h"
 #include "ext_sysmem.h"
+#include "max_types.h"
 #include <ext.h>
 #include <ext_obex.h>
 #include <stddef.h>
@@ -19,7 +20,7 @@ static t_class *file2sig_class;
 typedef struct _filebuf
 {
     char *data;
-    unsigned long length;
+    t_ptr_size length;
     bool success;
     bool free;
 } t_filebuf;
