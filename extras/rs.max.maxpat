@@ -19,7 +19,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 70.0, 290.0, 92.0, 22.0 ],
+                    "patching_rect": [ 39.0, 303.0, 92.0, 22.0 ],
                     "text": "help rs.file2sig~"
                 }
             },
@@ -93,7 +93,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 70.0, 318.0, 52.0, 22.0 ],
+                    "patching_rect": [ 39.0, 331.0, 52.0, 22.0 ],
                     "text": "pcontrol"
                 }
             },

@@ -1,6 +1,7 @@
 #include "ext_assist.h"
 #include "ext_common.h"
 #include "ext_mess.h"
+#include "ext_obex_util.h"
 #include "ext_path.h"
 #include "ext_post.h"
 #include "ext_proto.h"
@@ -32,10 +33,11 @@ typedef struct _file2sig
     t_int read_idx;
     t_int read_shift;
     t_int byte_size;
+    long polarity;
     t_filebuf file;
 } t_file2sig;
 
-static double_t BIN_AMP[2] = {1.0, -1.0};
+static double_t BIN_AMP[2][2] = {{1.0, -1.0}, {1.0, 0.0}};
 static double_t QUAD_AMP[4] = {0.5, 0.0, -0.5, -1.0};
 
 void file2sig_assist(t_file2sig *x, void *b, long m, long a, char *s);
@@ -59,9 +61,18 @@ C74_EXPORT void ext_main(void *r)
     class_addmethod(c, (method)file2sig_dsp64, "dsp64", A_CANT, 0);
     class_addmethod(c, (method)file2sig_assist, "assist", A_CANT, 0);
     class_addmethod(c, (method)file2sig_read, "read", A_DEFSYM, 0);
+
     class_dspinit(c);
-    class_register(CLASS_BOX, c);
+
+    CLASS_ATTR_LONG(c, "polarity", 0, t_file2sig, polarity);
+    CLASS_ATTR_FILTER_CLIP(c, "polarity", 0, 1);
+    CLASS_ATTR_LABEL(c, "polarity", 0, "Select bipolar/unipolar output");
+    // CLASS_ATTR_DEFAULT_SAVE(c, "polarity", 0, "0");
+    // CLASS_ATTR_BASIC(c, "polarity", 0);
+
     file2sig_class = c;
+
+    class_register(CLASS_BOX, c);
 }
 
 void *file2sig_new(t_symbol *s, long argc, t_atom *argv)
@@ -76,6 +87,8 @@ void *file2sig_new(t_symbol *s, long argc, t_atom *argv)
     t_symbol *filename = gensym("");
 
     atom_arg_getsym(&filename, 0, argc, argv);
+    // necessary for @attribute syntax to work in box
+    attr_args_process(x, argc, argv);
 
     if (filename != gensym(""))
     {
@@ -177,7 +190,7 @@ void file2sig_perform64(t_file2sig *x, t_object *dsp64, double **ins, long numin
     {
         value = *in++;
 
-        *out++ = BIN_AMP[(x->file.data[x->read_idx] >> x->read_shift) & 0b00000001];
+        *out++ = BIN_AMP[x->polarity][(x->file.data[x->read_idx] >> x->read_shift) & 0b00000001];
 
         // set trig to true if delta
         if ((value - x->prev_in) > 0.5)

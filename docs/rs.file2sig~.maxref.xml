@@ -74,6 +74,13 @@
 		</method>
 	</methodlist>
 	<!--ATTRIBUTES-->
+	<attributelist>
+		<attribute name='polarity' get='1' set='1' type='long' size='1' >
+			<digest>Select bipolar/unipolar output</digest>
+			<description>Set the control signal to bipolar (-1–1) or unipolar (0–1) range: 0 (bipolar, default), 1 (unipolar)</description>
+		</attribute>
+	</attributelist>
+	<!-- MISC -->
 	<misc name="Output">
 		<entry name="signal outlet">
 			<description>
